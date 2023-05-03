@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "z2G7ogmtQoR4MX7qPTeYQRml6MrJCG293Q2FIUB9yns=",
+  "Source": "budget-api",
+  "BasePath": "_content/budget-api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

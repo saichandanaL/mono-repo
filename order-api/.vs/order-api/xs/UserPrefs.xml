@@ -1,0 +1,28 @@
+﻿<Properties StartupConfiguration="{19DAEFC9-50F5-43A2-BCED-751BA9AD3CDA}|https">
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.order-api PreferredExecutionTarget="/Applications/Safari.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="order-api/appsettings.json">
+    <Files>
+      <File FileName="order-api/Controllers/OrderController.cs" Line="32" Column="75" />
+      <File FileName="order-api/WeatherForecast.cs" />
+      <File FileName="order-api/appsettings.json" Line="8" Column="22" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="order-api" expanded="True">
+            <Node name="order-api" expanded="True">
+              <Node name="Controllers" expanded="True" />
+              <Node name="appsettings.json" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MultiItemStartupConfigurations />
+</Properties>
