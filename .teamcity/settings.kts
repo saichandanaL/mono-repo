@@ -38,9 +38,10 @@ object Build : BuildType({
     artifactRules = "+:./build => %env%_%branch%_%apiname%_%version%_%build.number%.zip"
 
     params {
+        text("apiname", "samplewebapi", display = ParameterDisplay.PROMPT, allowEmpty = true)
         text("env", "local", display = ParameterDisplay.PROMPT, allowEmpty = true)
         text("branch", "dev", display = ParameterDisplay.PROMPT, allowEmpty = true)
-        text("apiname", "samplewebapi", display = ParameterDisplay.PROMPT, allowEmpty = true)
+        text("version", "v1", display = ParameterDisplay.PROMPT, allowEmpty = true)
     }
 
     vcs {
