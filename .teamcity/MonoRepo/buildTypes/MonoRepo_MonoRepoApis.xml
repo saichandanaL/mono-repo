@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<build-type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://www.jetbrains.com/teamcity/schemas/2021.1/project-config.xsd">
+  <name>Mono-repo-apis</name>
+  <description />
+  <settings>
+    <options>
+      <option name="publishArtifactCondition" value="SUCCESSFUL" />
+    </options>
+    <disabled-settings>
+      <setting-ref ref="RUNNER_2" />
+      <setting-ref ref="RUNNER_3" />
+      <setting-ref ref="RUNNER_6" />
+      <setting-ref ref="RUNNER_7" />
+      <setting-ref ref="RUNNER_8" />
+      <setting-ref ref="RUNNER_9" />
+    </disabled-settings>
+    <parameters>
+      <param name="apiname" value="ASPNETCoreWebAPI" spec="text display='prompt' validationMode='any'" />
+      <param name="branch" value="main" spec="text display='prompt' validationMode='any'" />
+      <param name="env" value="dev" spec="text display='prompt' validationMode='any'" />
+      <param name="project_file_endswith_.csproj" value="ASPNETCoreWebAPI/SampleWebApiAspNetCore/SampleWebApiAspNetCore.csproj" spec="text display='prompt' validationMode='not_empty'" />
+      <param name="solution_file" value="ASPNETCoreWebAPI/SampleWebApiAspNetCore.sln" spec="text display='prompt' validationMode='not_empty'" />
+      <param name="version" value="v1" spec="text display='prompt' validationMode='any'" />
+    </parameters>
+    <build-runners>
+      <runner id="RUNNER_8" name="clean build files if present" type="simpleRunner">
+        <parameters>
+          <param name="org.jfrog.artifactory.selectedDeployableServer.downloadSpecSource" value="Job configuration" />
+          <param name="org.jfrog.artifactory.selectedDeployableServer.envVarsExcludePatterns" value="*password*,*secret*" />
+          <param name="org.jfrog.artifactory.selectedDeployableServer.targetRepo" value="budget-api" />
+          <param name="org.jfrog.artifactory.selectedDeployableServer.uploadSpecSource" value="Job configuration" />
+          <param name="org.jfrog.artifactory.selectedDeployableServer.urlId" value="0" />
+          <param name="org.jfrog.artifactory.selectedDeployableServer.useSpecs" value="true" />
+          <param name="script.content" value="if exist build rmdir /s /q build" />
+          <param name="teamcity.step.mode" value="default" />
+          <param name="use.custom.script" value="true" />
+        </parameters>
+      </runner>
+      <runner id="RUNNER_10" name="publishig api" type="simpleRunner">
+        <parameters>
+          <param name="org.jfrog.artifactory.selectedDeployableServer.downloadSpecSource" value="Job configuration" />
+          <param name="org.jfrog.artifactory.selectedDeployableServer.envVarsExcludePatterns" value="*password*,*secret*" />
+          <param name="org.jfrog.artifactory.selectedDeployableServer.publishBuildInfo" value="true" />
+          <param name="org.jfrog.artifactory.selectedDeployableServer.publishedArtifacts" value="./%apiname%/published-data =&gt; %version%/%apiname%/%apiname%_artifacts.zip" />
+          <param name="org.jfrog.artifactory.selectedDeployableServer.targetRepo" value="mono-repo-release" />
+          <param name="org.jfrog.artifactory.selectedDeployableServer.uploadSpecSource" value="Job configuration" />
+          <param name="org.jfrog.artifactory.selectedDeployableServer.urlId" value="0" />
+          <param name="org.jfrog.artifactory.selectedDeployableServer.useSpecs" value="false" />
+          <param name="script.content" value="dotnet publish -o ./published-data" />
+          <param name="teamcity.build.workingDir" value="%apiname%" />
+          <param name="teamcity.step.mode" value="default" />
+          <param name="use.custom.script" value="true" />
+        </parameters>
+      </runner>
+      <runner id="RUNNER_9" name="publishing" type="simpleRunner">
+        <parameters>
+          <param name="org.jfrog.artifactory.selectedDeployableServer.buildDependencies" value="Requires Artifactory Pro." />
+          <param name="org.jfrog.artifactory.selectedDeployableServer.downloadSpecSource" value="Job configuration" />
+          <param name="org.jfrog.artifactory.selectedDeployableServer.envVarsExcludePatterns" value="*password*,*secret*" />
+          <param name="org.jfrog.artifactory.selectedDeployableServer.publishBuildInfo" value="true" />
+          <param name="org.jfrog.artifactory.selectedDeployableServer.uploadSpecSource" value="Job configuration" />
+          <param name="org.jfrog.artifactory.selectedDeployableServer.useSpecs" value="true" />
+          <param name="script.content" value="dotnet publish %solution_file% -o published_data.zip" />
+          <param name="teamcity.step.mode" value="default" />
+          <param name="use.custom.script" value="true" />
+        </parameters>
+      </runner>
+      <runner id="RUNNER_2" name="Restore dependencies" type="dotnet">
+        <parameters>
+          <param name="command" value="restore" />
+          <param name="dotNetCoverage.dotCover.home.path" value="%teamcity.tool.JetBrains.dotCover.CommandLineTools.DEFAULT%" />
+          <param name="paths" value="%solution_file%" />
+          <param name="teamcity.step.mode" value="default" />
+        </parameters>
+      </runner>
+      <runner id="RUNNER_3" name="Publish" type="dotnet">
+        <parameters>
+          <param name="command" value="publish" />
+          <param name="dotNetCoverage.dotCover.home.path" value="%teamcity.tool.JetBrains.dotCover.CommandLineTools.DEFAULT%" />
+          <param name="outputDir" value="./build" />
+          <param name="paths" value="%project_file_endswith_.csproj%" />
+          <param name="teamcity.step.mode" value="default" />
+        </parameters>
+      </runner>
+      <runner id="RUNNER_6" name="publishing artifacts" type="Maven2">
+        <parameters>
+          <param name="goals" value="install" />
+          <param name="localRepoScope" value="agent" />
+          <param name="maven.path" value="%teamcity.tool.maven.DEFAULT%" />
+          <param name="org.jfrog.artifactory.selectedDeployableServer.defaultModuleVersionConfiguration" value="GLOBAL" />
+          <param name="org.jfrog.artifactory.selectedDeployableServer.deployArtifacts" value="true" />
+          <param name="org.jfrog.artifactory.selectedDeployableServer.envVarsExcludePatterns" value="*password*,*secret*" />
+          <param name="org.jfrog.artifactory.selectedDeployableServer.publishBuildInfo" value="true" />
+          <param name="org.jfrog.artifactory.selectedDeployableServer.targetRepo" value="mono-repo-release" />
+          <param name="org.jfrog.artifactory.selectedDeployableServer.targetSnapshotRepo" value="mono-repo-snap" />
+          <param name="org.jfrog.artifactory.selectedDeployableServer.urlId" value="0" />
+          <param name="pomLocation" value=".teamcity/pom.xml" />
+          <param name="teamcity.build.workingDir" value="%apiname%" />
+          <param name="teamcity.coverage.emma.include.source" value="true" />
+          <param name="teamcity.coverage.emma.instr.parameters" value="-ix -*Test*" />
+          <param name="teamcity.coverage.idea.includePatterns" value="*" />
+          <param name="teamcity.coverage.jacoco.patterns" value="+:*" />
+          <param name="teamcity.step.mode" value="default" />
+          <param name="teamcity.tool.jacoco" value="%teamcity.tool.jacoco.DEFAULT%" />
+          <param name="userSettingsSelection" value="userSettingsSelection:default" />
+        </parameters>
+      </runner>
+      <runner id="RUNNER_7" name="removing build files" type="dotnet">
+        <parameters>
+          <param name="command" value="clean" />
+          <param name="dotNetCoverage.dotCover.home.path" value="%teamcity.tool.JetBrains.dotCover.CommandLineTools.DEFAULT%" />
+          <param name="paths" value="%solution_file%" />
+          <param name="teamcity.step.mode" value="default" />
+        </parameters>
+      </runner>
+    </build-runners>
+    <vcs-settings>
+      <vcs-entry-ref root-id="MonoRepo_MonoRepo" />
+    </vcs-settings>
+    <requirements />
+    <build-triggers />
+    <cleanup />
+  </settings>
+</build-type>
+

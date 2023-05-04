@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://www.jetbrains.com/teamcity/schemas/2021.1/project-config.xsd">
+  <name>Mono-Repo</name>
+  <parameters>
+    <param name="branch" value="main" spec="text display='prompt' validationMode='any'" />
+  </parameters>
+  <project-extensions>
+    <extension id="KEEP_RULE_1" type="keepRules">
+      <parameters>
+        <param name="keepData.1.type" value="statistics" />
+        <param name="limit.type" value="all" />
+        <param name="partitions.1.type" value="perBranch" />
+        <param name="preserveArtifacts" value="false" />
+        <param name="ruleDisabled" value="false" />
+      </parameters>
+    </extension>
+    <extension id="PROJECT_EXT_1" type="versionedSettings">
+      <parameters>
+        <param name="buildSettings" value="ALWAYS_USE_CURRENT" />
+        <param name="credentialsStorageType" value="credentialsJSON" />
+        <param name="enabled" value="true" />
+        <param name="rootId" value="MonoRepo_MonoRepo" />
+        <param name="showChanges" value="false" />
+      </parameters>
+    </extension>
+    <extension id="PROJECT_EXT_3" type="storage_settings">
+      <parameters>
+        <param name="secure:storage.artifactory.password" value="credentialsJSON:367809ea-a5be-4c7a-999f-2ae1895f8dcb" />
+        <param name="storage.artifactory.repository.key" value="mono-repo-release" />
+        <param name="storage.artifactory.repository.type" value="local" />
+        <param name="storage.artifactory.url" value="https://teamjfrog.jfrog.io/artifactory" />
+        <param name="storage.artifactory.username" value="sai" />
+        <param name="storage.name" value="allartifactsdstore" />
+        <param name="storage.type" value="Artifacactory_storage" />
+      </parameters>
+    </extension>
+    <extension id="PROJECT_EXT_6" type="active_storage">
+      <parameters>
+        <param name="active.storage.feature.id" value="PROJECT_EXT_3" />
+      </parameters>
+    </extension>
+  </project-extensions>
+  <cleanup />
+</project>
+
