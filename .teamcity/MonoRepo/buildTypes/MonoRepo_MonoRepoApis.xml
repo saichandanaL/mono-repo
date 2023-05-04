@@ -8,7 +8,6 @@
     </options>
     <disabled-settings>
       <setting-ref ref="RUNNER_6" />
-      <setting-ref ref="RUNNER_8" />
     </disabled-settings>
     <parameters>
       <param name="apiname" value="ASPNETCoreWebAPI" spec="text display='prompt' validationMode='any'" />
@@ -19,19 +18,6 @@
       <param name="version" value="v1" spec="text display='prompt' validationMode='any'" />
     </parameters>
     <build-runners>
-      <runner id="RUNNER_8" name="clean build files if present" type="simpleRunner">
-        <parameters>
-          <param name="org.jfrog.artifactory.selectedDeployableServer.downloadSpecSource" value="Job configuration" />
-          <param name="org.jfrog.artifactory.selectedDeployableServer.envVarsExcludePatterns" value="*password*,*secret*" />
-          <param name="org.jfrog.artifactory.selectedDeployableServer.targetRepo" value="budget-api" />
-          <param name="org.jfrog.artifactory.selectedDeployableServer.uploadSpecSource" value="Job configuration" />
-          <param name="org.jfrog.artifactory.selectedDeployableServer.urlId" value="0" />
-          <param name="org.jfrog.artifactory.selectedDeployableServer.useSpecs" value="true" />
-          <param name="script.content" value="if exist build rmdir /s /q build" />
-          <param name="teamcity.step.mode" value="default" />
-          <param name="use.custom.script" value="true" />
-        </parameters>
-      </runner>
       <runner id="RUNNER_10" name="publishig api" type="simpleRunner">
         <parameters>
           <param name="org.jfrog.artifactory.selectedDeployableServer.downloadSpecSource" value="Job configuration" />
