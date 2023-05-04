@@ -1,6 +1,7 @@
 import jetbrains.buildServer.configs.kotlin.*
 import jetbrains.buildServer.configs.kotlin.buildFeatures.perfmon
 import jetbrains.buildServer.configs.kotlin.buildSteps.dotnetBuild
+import jetbrains.buildServer.configs.kotlin.buildSteps.dotnetRestore
 import jetbrains.buildServer.configs.kotlin.projectFeatures.activeStorage
 import jetbrains.buildServer.configs.kotlin.triggers.vcs
 import jetbrains.buildServer.configs.kotlin.vcs.GitVcsRoot
@@ -95,6 +96,13 @@ object MonoRepo2 : BuildType({
 
     vcs {
         root(OrderApi)
+    }
+
+    steps {
+        dotnetRestore {
+            name = "Restore"
+            param("dotNetCoverage.dotCover.home.path", "%teamcity.tool.JetBrains.dotCover.CommandLineTools.DEFAULT%")
+        }
     }
 })
 
