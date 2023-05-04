@@ -30,6 +30,7 @@ version = "2022.10"
 
 project {
 
+    buildType(MonoRepo2)
     buildType(Build)
 
     features {
@@ -84,4 +85,8 @@ object Build : BuildType({
         perfmon {
         }
     }
+})
+
+object MonoRepo2 : BuildType({
+    name = "Mono repo 2"
 })
