@@ -34,7 +34,6 @@ project {
 
 object MonoRepoApis : BuildType({
     name = "Mono-repo-apis"
-    description = "api 1"
 
     artifactRules = "+:./build => %env%_%branch%_%apiname%_%version%_%build.number%.zip"
 
