@@ -1,6 +1,7 @@
 import jetbrains.buildServer.configs.kotlin.*
 import jetbrains.buildServer.configs.kotlin.buildFeatures.perfmon
 import jetbrains.buildServer.configs.kotlin.buildSteps.dotnetBuild
+import jetbrains.buildServer.configs.kotlin.projectFeatures.activeStorage
 import jetbrains.buildServer.configs.kotlin.triggers.vcs
 
 /*
@@ -41,6 +42,10 @@ project {
             param("storage.type", "Artifacactory_storage")
             param("storage.artifactory.repository.key", "mono-repo-release")
             param("secure:storage.artifactory.password", "credentialsJSON:7c5b9108-0240-4971-8b8c-c08791903b6c")
+        }
+        activeStorage {
+            id = "PROJECT_EXT_5"
+            activeStorageID = "PROJECT_EXT_4"
         }
     }
 }
