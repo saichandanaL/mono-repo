@@ -103,6 +103,11 @@ object MonoRepo2 : BuildType({
             name = "Restore"
             param("dotNetCoverage.dotCover.home.path", "%teamcity.tool.JetBrains.dotCover.CommandLineTools.DEFAULT%")
         }
+        dotnetBuild {
+            name = "Build"
+            outputDir = "./build"
+            param("dotNetCoverage.dotCover.home.path", "%teamcity.tool.JetBrains.dotCover.CommandLineTools.DEFAULT%")
+        }
     }
 })
 
