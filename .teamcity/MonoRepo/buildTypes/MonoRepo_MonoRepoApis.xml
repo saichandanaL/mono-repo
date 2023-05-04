@@ -7,7 +7,6 @@
       <option name="publishArtifactCondition" value="SUCCESSFUL" />
     </options>
     <disabled-settings>
-      <setting-ref ref="RUNNER_2" />
       <setting-ref ref="RUNNER_3" />
       <setting-ref ref="RUNNER_6" />
       <setting-ref ref="RUNNER_8" />
@@ -62,14 +61,6 @@
           <param name="script.content" value="dotnet publish %solution_file% -o published_data.zip" />
           <param name="teamcity.step.mode" value="default" />
           <param name="use.custom.script" value="true" />
-        </parameters>
-      </runner>
-      <runner id="RUNNER_2" name="Restore dependencies" type="dotnet">
-        <parameters>
-          <param name="command" value="restore" />
-          <param name="dotNetCoverage.dotCover.home.path" value="%teamcity.tool.JetBrains.dotCover.CommandLineTools.DEFAULT%" />
-          <param name="paths" value="%solution_file%" />
-          <param name="teamcity.step.mode" value="default" />
         </parameters>
       </runner>
       <runner id="RUNNER_3" name="Publish" type="dotnet">
