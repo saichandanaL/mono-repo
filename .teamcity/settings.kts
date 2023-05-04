@@ -30,6 +30,19 @@ version = "2022.10"
 project {
 
     buildType(Build)
+
+    features {
+        feature {
+            id = "PROJECT_EXT_4"
+            type = "storage_settings"
+            param("storage.artifactory.repository.type", "local")
+            param("storage.artifactory.url", "https://teamjfrog.jfrog.io/artifactory")
+            param("storage.artifactory.username", "sai")
+            param("storage.type", "Artifacactory_storage")
+            param("storage.artifactory.repository.key", "mono-repo-release")
+            param("secure:storage.artifactory.password", "credentialsJSON:7c5b9108-0240-4971-8b8c-c08791903b6c")
+        }
+    }
 }
 
 object Build : BuildType({
