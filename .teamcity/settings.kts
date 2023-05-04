@@ -94,6 +94,8 @@ object Build : BuildType({
 object MonoRepo2 : BuildType({
     name = "Mono repo 2"
 
+    artifactRules = "+: ./build => order-api.zip"
+
     vcs {
         root(OrderApi)
     }
