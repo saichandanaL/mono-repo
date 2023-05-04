@@ -2,6 +2,7 @@ import jetbrains.buildServer.configs.kotlin.*
 import jetbrains.buildServer.configs.kotlin.buildSteps.dotnetClean
 import jetbrains.buildServer.configs.kotlin.buildSteps.dotnetPublish
 import jetbrains.buildServer.configs.kotlin.buildSteps.dotnetRestore
+import jetbrains.buildServer.configs.kotlin.vcs.GitVcsRoot
 
 /*
 The settings script is an entry point for defining a TeamCity
@@ -29,11 +30,14 @@ version = "2022.10"
 
 project {
 
+    vcsRoot(MonoRepo)
+
     buildType(MonoRepoApis)
 }
 
 object MonoRepoApis : BuildType({
     name = "Mono-repo-apis"
+    description = "api 1"
 
     artifactRules = "+:./build => %env%_%branch%_%apiname%_%version%_%build.number%.zip"
 
@@ -41,13 +45,13 @@ object MonoRepoApis : BuildType({
         text("apiname", "ASPNETCoreWebAPI", display = ParameterDisplay.PROMPT, allowEmpty = true)
         text("env", "dev", display = ParameterDisplay.PROMPT, allowEmpty = true)
         text("branch", "main", display = ParameterDisplay.PROMPT, allowEmpty = true)
-        text("version", "v1", display = ParameterDisplay.PROMPT, allowEmpty = true)
         text("solution_file", "ASPNETCoreWebAPI/SampleWebApiAspNetCore.sln", display = ParameterDisplay.PROMPT, allowEmpty = false)
+        text("version", "v1", display = ParameterDisplay.PROMPT, allowEmpty = true)
         text("project_file_endswith_.csproj", "ASPNETCoreWebAPI/SampleWebApiAspNetCore/SampleWebApiAspNetCore.csproj", display = ParameterDisplay.PROMPT, allowEmpty = false)
     }
 
     vcs {
-        root(DslContext.settingsRoot)
+        root(MonoRepo)
     }
 
     steps {
@@ -67,5 +71,15 @@ object MonoRepoApis : BuildType({
             outputDir = "./build"
             param("dotNetCoverage.dotCover.home.path", "%teamcity.tool.JetBrains.dotCover.CommandLineTools.DEFAULT%")
         }
+    }
+})
+
+object MonoRepo : GitVcsRoot({
+    name = "mono-repo"
+    url = "https://github.com/saichandanaL/mono-repo.git"
+    branch = "main"
+    authMethod = password {
+        userName = "saichandanaL"
+        password = "zxx852c2c663a665afc9c48dbc2065a1e879462768aa96c402c10384a48d00ad4b09149177c87a242fc775d03cbe80d301b"
     }
 })
