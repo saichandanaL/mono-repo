@@ -70,6 +70,7 @@ object Build : BuildType({
 
     vcs {
         root(DslContext.settingsRoot)
+        root(OrderApi)
     }
 
     steps {
