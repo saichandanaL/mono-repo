@@ -3,6 +3,7 @@ import jetbrains.buildServer.configs.kotlin.buildFeatures.perfmon
 import jetbrains.buildServer.configs.kotlin.buildSteps.dotnetBuild
 import jetbrains.buildServer.configs.kotlin.projectFeatures.activeStorage
 import jetbrains.buildServer.configs.kotlin.triggers.vcs
+import jetbrains.buildServer.configs.kotlin.vcs.GitVcsRoot
 
 /*
 The settings script is an entry point for defining a TeamCity
@@ -29,6 +30,8 @@ To debug in IntelliJ Idea, open the 'Maven Projects' tool window (View
 version = "2022.10"
 
 project {
+
+    vcsRoot(OrderApi)
 
     buildType(MonoRepo2)
     buildType(Build)
@@ -89,4 +92,18 @@ object Build : BuildType({
 
 object MonoRepo2 : BuildType({
     name = "Mono repo 2"
+
+    vcs {
+        root(OrderApi)
+    }
+})
+
+object OrderApi : GitVcsRoot({
+    name = "order-api"
+    url = "https://github.com/saichandanaL/mono-repo.git"
+    branch = "main"
+    authMethod = password {
+        userName = "saichandanaL"
+        password = "credentialsJSON:0e0b4400-2b43-484c-a5e9-9adb7d358914"
+    }
 })
