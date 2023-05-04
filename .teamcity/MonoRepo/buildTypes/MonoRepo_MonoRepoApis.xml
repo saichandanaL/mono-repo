@@ -10,7 +10,6 @@
       <setting-ref ref="RUNNER_2" />
       <setting-ref ref="RUNNER_3" />
       <setting-ref ref="RUNNER_6" />
-      <setting-ref ref="RUNNER_7" />
       <setting-ref ref="RUNNER_8" />
       <setting-ref ref="RUNNER_9" />
     </disabled-settings>
@@ -103,14 +102,6 @@
           <param name="teamcity.step.mode" value="default" />
           <param name="teamcity.tool.jacoco" value="%teamcity.tool.jacoco.DEFAULT%" />
           <param name="userSettingsSelection" value="userSettingsSelection:default" />
-        </parameters>
-      </runner>
-      <runner id="RUNNER_7" name="removing build files" type="dotnet">
-        <parameters>
-          <param name="command" value="clean" />
-          <param name="dotNetCoverage.dotCover.home.path" value="%teamcity.tool.JetBrains.dotCover.CommandLineTools.DEFAULT%" />
-          <param name="paths" value="%solution_file%" />
-          <param name="teamcity.step.mode" value="default" />
         </parameters>
       </runner>
     </build-runners>
