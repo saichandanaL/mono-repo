@@ -53,7 +53,7 @@ project {
 object Build : BuildType({
     name = "Build"
 
-    artifactRules = "+:*=> %env%_%branch%_%apiname%_%version%_%build.number%.zip"
+    artifactRules = "+:./build=> %env%_%branch%_%apiname%_%version%_%build.number%.zip"
 
     params {
         text("apiname", "samplewebapi", display = ParameterDisplay.PROMPT, allowEmpty = true)
