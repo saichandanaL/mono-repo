@@ -32,6 +32,7 @@ version = "2022.10"
 
 project {
 
+    vcsRoot(Samplewebspi)
     vcsRoot(OrderApi)
 
     buildType(MonoRepo2)
@@ -98,6 +99,7 @@ object MonoRepo2 : BuildType({
 
     vcs {
         root(OrderApi)
+        root(Samplewebspi)
     }
 
     steps {
@@ -115,6 +117,16 @@ object MonoRepo2 : BuildType({
 
 object OrderApi : GitVcsRoot({
     name = "order-api"
+    url = "https://github.com/saichandanaL/mono-repo.git"
+    branch = "main"
+    authMethod = password {
+        userName = "saichandanaL"
+        password = "credentialsJSON:0e0b4400-2b43-484c-a5e9-9adb7d358914"
+    }
+})
+
+object Samplewebspi : GitVcsRoot({
+    name = "samplewebspi"
     url = "https://github.com/saichandanaL/mono-repo.git"
     branch = "main"
     authMethod = password {
