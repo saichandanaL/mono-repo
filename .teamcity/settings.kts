@@ -37,6 +37,10 @@ object Build : BuildType({
 
     artifactRules = "+:./build => %env%_%branch%_%apiname%_%version%_%build.number%.zip"
 
+    params {
+        text("apiname", "samplewebapi", display = ParameterDisplay.PROMPT, allowEmpty = true)
+    }
+
     vcs {
         root(DslContext.settingsRoot)
     }
