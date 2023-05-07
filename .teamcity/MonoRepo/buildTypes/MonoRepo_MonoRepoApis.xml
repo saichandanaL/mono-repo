@@ -33,6 +33,17 @@
           <param name="use.custom.script" value="true" />
         </parameters>
       </runner>
+      <runner id="RUNNER_4" name="Push to octopus" type="octopus.push.package">
+        <parameters>
+          <param name="octopus_forcepush" value="false" />
+          <param name="octopus_host" value="http://localhost:80/" />
+          <param name="octopus_packagepaths" value="./%apiname%/published-data =&gt; %system.teamcity.projectName%.%build.number%-%branch%.zip" />
+          <param name="octopus_publishartifacts" value="true" />
+          <param name="octopus_space_name" value="Default" />
+          <param name="secure:octopus_apikey" value="credentialsJSON:2eaa0c0c-5e0d-4d2c-bbf9-587cfac73c18" />
+          <param name="teamcity.step.mode" value="default" />
+        </parameters>
+      </runner>
     </build-runners>
     <vcs-settings>
       <vcs-entry-ref root-id="MonoRepo_MonoRepo" />
