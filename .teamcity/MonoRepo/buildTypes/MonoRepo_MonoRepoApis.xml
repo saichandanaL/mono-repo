@@ -4,7 +4,8 @@
   <description />
   <settings>
     <options>
-      <option name="artifactRules" value="./%apiname%/published-data =&gt; %version%/%apiname%/%apiname%_artifacts.zip" />
+      <option name="artifactRules" value="./%apiname%/published-data =&gt; %system.teamcity.projectName%.%build.number%-%teamcity.build.branch%.zip" />
+      <option name="buildNumberPattern" value="1.0.%build.counter%" />
       <option name="publishArtifactCondition" value="SUCCESSFUL" />
     </options>
     <parameters>
