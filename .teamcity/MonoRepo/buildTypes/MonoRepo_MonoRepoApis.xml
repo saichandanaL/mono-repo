@@ -49,6 +49,7 @@
     </build-runners>
     <vcs-settings>
       <vcs-entry-ref root-id="MonoRepo_MonoRepo" />
+      <vcs-entry-ref root-id="MonoRepo_TrackTags" />
     </vcs-settings>
     <requirements />
     <build-triggers>
