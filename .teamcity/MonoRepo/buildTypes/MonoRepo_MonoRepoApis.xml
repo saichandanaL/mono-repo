@@ -26,8 +26,7 @@
           <param name="org.jfrog.artifactory.selectedDeployableServer.uploadSpecSource" value="Job configuration" />
           <param name="org.jfrog.artifactory.selectedDeployableServer.urlId" value="0" />
           <param name="org.jfrog.artifactory.selectedDeployableServer.useSpecs" value="false" />
-          <param name="script.content"><![CDATA[dotnet clean %solution_file%
-dotnet publish -o ./published-data]]></param>
+          <param name="script.content" value="dotnet publish -o ./published-data" />
           <param name="teamcity.build.workingDir" value="%apiname%" />
           <param name="teamcity.step.mode" value="default" />
           <param name="use.custom.script" value="true" />
