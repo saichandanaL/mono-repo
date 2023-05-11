@@ -21,7 +21,7 @@
           <param name="org.jfrog.artifactory.selectedDeployableServer.downloadSpecSource" value="Job configuration" />
           <param name="org.jfrog.artifactory.selectedDeployableServer.envVarsExcludePatterns" value="*password*,*secret*" />
           <param name="org.jfrog.artifactory.selectedDeployableServer.publishBuildInfo" value="true" />
-          <param name="org.jfrog.artifactory.selectedDeployableServer.publishedArtifacts" value="./%apiname%/published-data =&gt; %version%/%apiname%/%branch%_%apiname%_%version%_%build.number%.zip" />
+          <param name="org.jfrog.artifactory.selectedDeployableServer.publishedArtifacts" value="./%apiname%/published-data =&gt;%env%/%version%/%apiname%/%branch%_%apiname%_%version%_%build.number%.zip" />
           <param name="org.jfrog.artifactory.selectedDeployableServer.targetRepo" value="mono-repo-release" />
           <param name="org.jfrog.artifactory.selectedDeployableServer.uploadSpecSource" value="Job configuration" />
           <param name="org.jfrog.artifactory.selectedDeployableServer.urlId" value="0" />
