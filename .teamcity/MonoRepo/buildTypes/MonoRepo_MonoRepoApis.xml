@@ -7,9 +7,6 @@
       <option name="buildNumberPattern" value="1.0.%build.counter%" />
       <option name="publishArtifactCondition" value="SUCCESSFUL" />
     </options>
-    <disabled-settings>
-      <setting-ref ref="TRIGGER_1" />
-    </disabled-settings>
     <parameters>
       <param name="apiname" value="ASPNETCoreWebAPI" spec="text display='prompt' validationMode='any'" />
       <param name="branch" value="main" spec="text display='prompt' validationMode='any'" />
