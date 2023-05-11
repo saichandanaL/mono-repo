@@ -52,7 +52,6 @@
     <build-triggers>
       <build-trigger id="TRIGGER_1" type="vcsTrigger">
         <parameters>
-          <param name="enableQueueOptimization" value="true" />
           <param name="quietPeriodMode" value="DO_NOT_USE" />
         </parameters>
       </build-trigger>
