@@ -6,8 +6,11 @@
   <param name="authMethod" value="PASSWORD" />
   <param name="branch" value="%branch%" />
   <param name="ignoreKnownHosts" value="true" />
+  <param name="reportTagRevisions" value="true" />
   <param name="secure:password" value="credentialsJSON:554c6a6f-c61c-4084-af04-1b8067afa586" />
   <param name="submoduleCheckout" value="CHECKOUT" />
+  <param name="teamcity:branchSpec"><![CDATA[+:refs/tags/*
+-:<default>]]></param>
   <param name="url" value="https://github.com/saichandanaL/mono-repo.git" />
   <param name="useAlternates" value="AUTO" />
   <param name="username" value="saichandanaL" />
