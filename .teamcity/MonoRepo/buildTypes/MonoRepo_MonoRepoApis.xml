@@ -13,6 +13,7 @@
       <param name="env" value="qa" spec="text display='prompt' validationMode='any'" />
       <param name="project_file_endswith_.csproj" value="ASPNETCoreWebAPI/SampleWebApiAspNetCore/SampleWebApiAspNetCore.csproj" spec="text display='prompt' validationMode='not_empty'" />
       <param name="solution_file" value="ASPNETCoreWebAPI/SampleWebApiAspNetCore.sln" spec="text display='prompt' validationMode='not_empty'" />
+      <param name="teamcity.vcsTrigger.runBuildInNewEmptyBranch" value="true" />
       <param name="version" value="v1" spec="text display='prompt' validationMode='any'" />
     </parameters>
     <build-runners>
