@@ -10,7 +10,7 @@
     <parameters>
       <param name="apiname" value="ASPNETCoreWebAPI" spec="text display='prompt' validationMode='any'" />
       <param name="branch" value="main" spec="text display='prompt' validationMode='any'" />
-      <param name="env" value="dev" spec="text display='prompt' validationMode='any'" />
+      <param name="env" value="qa" spec="text display='prompt' validationMode='any'" />
       <param name="project_file_endswith_.csproj" value="ASPNETCoreWebAPI/SampleWebApiAspNetCore/SampleWebApiAspNetCore.csproj" spec="text display='prompt' validationMode='not_empty'" />
       <param name="solution_file" value="ASPNETCoreWebAPI/SampleWebApiAspNetCore.sln" spec="text display='prompt' validationMode='not_empty'" />
       <param name="version" value="v1" spec="text display='prompt' validationMode='any'" />
