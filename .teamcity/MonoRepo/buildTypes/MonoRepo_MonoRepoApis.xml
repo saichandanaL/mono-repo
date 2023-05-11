@@ -5,7 +5,6 @@
   <settings>
     <options>
       <option name="buildNumberPattern" value="1.0.%build.counter%" />
-      <option name="maximumNumberOfBuilds" value="4" />
       <option name="publishArtifactCondition" value="SUCCESSFUL" />
     </options>
     <parameters>
