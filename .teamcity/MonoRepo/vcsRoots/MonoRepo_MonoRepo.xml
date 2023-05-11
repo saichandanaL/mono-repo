@@ -9,7 +9,7 @@
   <param name="reportTagRevisions" value="true" />
   <param name="secure:password" value="credentialsJSON:554c6a6f-c61c-4084-af04-1b8067afa586" />
   <param name="submoduleCheckout" value="CHECKOUT" />
-  <param name="teamcity:branchSpec" value="refs/tags/v1.0" />
+  <param name="teamcity:branchSpec" value="refs/tags/%tag_name%" />
   <param name="url" value="https://github.com/saichandanaL/mono-repo.git" />
   <param name="useAlternates" value="AUTO" />
   <param name="username" value="saichandanaL" />
